@@ -1,0 +1,586 @@
+{
+  "nodes": [
+    {
+      "id": "center",
+      "type": "text",
+      "text": "# 오늘마감 플랫폼\n\n마감 할인 상품 거래 플랫폼\n- 소비자 / 사장님 / 관리자",
+      "x": 0,
+      "y": 0,
+      "width": 240,
+      "height": 100,
+      "color": "3"
+    },
+    {
+      "id": "c_branch",
+      "type": "text",
+      "text": "## 소비자 여정\n(Consumer / Buyer)",
+      "x": -600,
+      "y": -380,
+      "width": 220,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_onboarding",
+      "type": "text",
+      "text": "**온보딩**\n`/onboarding`\n역할 선택 → 소비자 등록",
+      "x": -980,
+      "y": -560,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "c_home",
+      "type": "text",
+      "text": "**홈 피드**\n`/buyer`\n주변 가게 목록\n(전체 / 즐겨찾기 탭)",
+      "x": -980,
+      "y": -440,
+      "width": 200,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "c_buyer_me",
+      "type": "text",
+      "text": "**구매자 프로필**\n`/buyer/me`\n내 정보 확인",
+      "x": -1240,
+      "y": -440,
+      "width": 200,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_store",
+      "type": "text",
+      "text": "**가게 상세**\n`/buyer/store/[storeId]`\n상품 목록 / 가게 정보\n즐겨찾기 / 지도 보기",
+      "x": -980,
+      "y": -310,
+      "width": 200,
+      "height": 100,
+      "color": "4"
+    },
+    {
+      "id": "c_product",
+      "type": "text",
+      "text": "**상품 상세**\n`/buyer/product/[id]`\n가격 / 픽업 마감\n리뷰 확인",
+      "x": -980,
+      "y": -170,
+      "width": 200,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "c_cart",
+      "type": "text",
+      "text": "**장바구니**\n`/buyer/cart`\n수량 조정 / 픽업 시간 선택\n예약 실행",
+      "x": -980,
+      "y": -40,
+      "width": 200,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "c_reservations_list",
+      "type": "text",
+      "text": "**예약 목록**\n`/buyer/reservations`\n전체 예약 목록\n상태별 필터",
+      "x": -1240,
+      "y": -40,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "c_orders",
+      "type": "text",
+      "text": "**주문내역**\n`/buyer/orders`\n탭: 전체 / 예약중\n픽업완료 / 취소환불",
+      "x": -980,
+      "y": 90,
+      "width": 200,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "c_reservation_detail",
+      "type": "text",
+      "text": "**예약 상세**\n`/buyer/reservations/[id]`\n상태 확인 / 가게 지도\n취소 (예약중일 때)",
+      "x": -1240,
+      "y": 90,
+      "width": 200,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "c_review",
+      "type": "text",
+      "text": "**리뷰 작성**\n픽업완료 주문카드에서\n별점 / 텍스트 / 이미지",
+      "x": -980,
+      "y": 220,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage",
+      "type": "text",
+      "text": "## 마이페이지\n`/mypage`\n프로필 / 히어로 등급\n쿠폰 / 포인트 / 영수증",
+      "x": -640,
+      "y": -80,
+      "width": 200,
+      "height": 100,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_profile",
+      "type": "text",
+      "text": "**프로필 편집**\n`/mypage/profile`\n이름 / 전화번호\n프로필 이미지",
+      "x": -400,
+      "y": -80,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_coupons",
+      "type": "text",
+      "text": "**쿠폰 지갑**\n`/mypage/coupons`\n사용가능 / 사용완료 / 만료",
+      "x": -640,
+      "y": 60,
+      "width": 200,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_points",
+      "type": "text",
+      "text": "**포인트**\n`/mypage/points`\n잔액 / 거래내역 / 계좌 등록",
+      "x": -640,
+      "y": 170,
+      "width": 200,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_hero",
+      "type": "text",
+      "text": "**히어로 등급**\n`/mypage/hero`\n등급 / 뱃지 / 환경 기여\n혜택 목록",
+      "x": -640,
+      "y": 280,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_receipts",
+      "type": "text",
+      "text": "**영수증 제출**\n`/mypage/receipts`\n업로드 / 심사 결과 확인",
+      "x": -640,
+      "y": 400,
+      "width": 200,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_orders",
+      "type": "text",
+      "text": "**마이페이지 주문**\n`/mypage/orders`\n주문내역 (마이페이지 내)",
+      "x": -400,
+      "y": 60,
+      "width": 200,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "c_mypage_benefits",
+      "type": "text",
+      "text": "**혜택 목록**\n`/mypage/benefits`\n등급별 혜택 현황\n잠긴 혜택 / 활성 혜택",
+      "x": -400,
+      "y": 170,
+      "width": 200,
+      "height": 80,
+      "color": "4"
+    },
+    {
+      "id": "s_branch",
+      "type": "text",
+      "text": "## 사장님 여정 (Seller)\n`/seller/*`",
+      "x": 400,
+      "y": -400,
+      "width": 220,
+      "height": 70,
+      "color": "6"
+    },
+    {
+      "id": "s_onboarding",
+      "type": "text",
+      "text": "**온보딩**\n`/onboarding`\n역할 선택 → 사장님 등록",
+      "x": 700,
+      "y": -560,
+      "width": 200,
+      "height": 70,
+      "color": "6"
+    },
+    {
+      "id": "s_store_setup",
+      "type": "text",
+      "text": "**가게 등록**\n`/seller/upload` (첫 방문)\n가게명 / 주소 / 연락처",
+      "x": 700,
+      "y": -450,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_upload",
+      "type": "text",
+      "text": "**상품 등록**\n`/seller/upload`\n이미지 / 가격 / 픽업 마감\n수량 / 메뉴 템플릿 사용",
+      "x": 700,
+      "y": -330,
+      "width": 200,
+      "height": 100,
+      "color": "6"
+    },
+    {
+      "id": "s_menu",
+      "type": "text",
+      "text": "**메뉴 관리**\n`/seller/menu`\n자주 파는 상품 템플릿\n추가 / 수정 / 삭제",
+      "x": 940,
+      "y": -330,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_dashboard",
+      "type": "text",
+      "text": "**상품 관리**\n`/seller/dashboard`\n등록 상품 목록\n판매완료 처리 / 매장 판매",
+      "x": 700,
+      "y": -200,
+      "width": 200,
+      "height": 90,
+      "color": "6"
+    },
+    {
+      "id": "s_edit",
+      "type": "text",
+      "text": "**상품 수정**\n`/seller/products/[id]/edit`\n가격 / 수량 / 픽업 시간 변경",
+      "x": 940,
+      "y": -200,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_reservations",
+      "type": "text",
+      "text": "**예약 관리**\n`/seller/reservations`\n예약중 / 완료 / 취소\n필터 탭 제공",
+      "x": 700,
+      "y": -70,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_analytics",
+      "type": "text",
+      "text": "**매출 분석**\n`/seller/analytics`\n매출 추이 차트\n상품별 판매 순위",
+      "x": 940,
+      "y": -70,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_reviews",
+      "type": "text",
+      "text": "**리뷰 관리**\n`/seller/reviews`\n평점 통계 / 리뷰 목록\n답글 작성",
+      "x": 700,
+      "y": 60,
+      "width": 200,
+      "height": 80,
+      "color": "6"
+    },
+    {
+      "id": "s_settings",
+      "type": "text",
+      "text": "**가게 설정**\n`/seller/settings`\n가게 정보 수정\n이미지 / 주소 / 연락처",
+      "x": 940,
+      "y": 60,
+      "width": 200,
+      "height": 70,
+      "color": "6"
+    },
+    {
+      "id": "sa_branch",
+      "type": "text",
+      "text": "## 사장님 여정 (Store-Admin)\n`/store-admin/*`",
+      "x": 400,
+      "y": 200,
+      "width": 250,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "sa_dashboard",
+      "type": "text",
+      "text": "**대시보드**\n`/store-admin/dashboard`\n오늘 매출 / 주문수\n소진율 / 평점\n7일 매출 차트",
+      "x": 700,
+      "y": 320,
+      "width": 200,
+      "height": 110,
+      "color": "5"
+    },
+    {
+      "id": "sa_products",
+      "type": "text",
+      "text": "**상품 관리**\n`/store-admin/products`\n판매중 / 마감 탭\n수정 / 판매종료 / 삭제",
+      "x": 940,
+      "y": 320,
+      "width": 200,
+      "height": 90,
+      "color": "5"
+    },
+    {
+      "id": "sa_product_new",
+      "type": "text",
+      "text": "**새 상품 등록**\n`/store-admin/products/new`\nseller 폼 재사용",
+      "x": 1180,
+      "y": 320,
+      "width": 200,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "sa_orders",
+      "type": "text",
+      "text": "**주문 관리**\n`/store-admin/orders`\n전체 / 예약중 / 완료 / 취소\n픽업 확인 버튼\n30초 자동 갱신",
+      "x": 700,
+      "y": 470,
+      "width": 200,
+      "height": 110,
+      "color": "5"
+    },
+    {
+      "id": "sa_settlement",
+      "type": "text",
+      "text": "**정산 관리**\n`/store-admin/settlement`\n월별 정산 요약\n수수료 / 정산 예정액\n계좌 정보",
+      "x": 940,
+      "y": 470,
+      "width": 200,
+      "height": 100,
+      "color": "5"
+    },
+    {
+      "id": "sa_menu",
+      "type": "text",
+      "text": "**메뉴 관리**\n`/store-admin/menu`\n템플릿 관리",
+      "x": 700,
+      "y": 620,
+      "width": 200,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "sa_predict",
+      "type": "text",
+      "text": "**소진율 예측**\n`/store-admin/predict`\nML 기반 예측",
+      "x": 940,
+      "y": 620,
+      "width": 200,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "sa_promotions",
+      "type": "text",
+      "text": "**프로모션**\n`/store-admin/promotions`\n쿠폰 사용 현황\n수수료 조정 이력",
+      "x": 1180,
+      "y": 470,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "sa_profile",
+      "type": "text",
+      "text": "**가게 정보**\n`/store-admin/profile`\n기본 정보 / 사업자 정보\n정산 계좌",
+      "x": 1180,
+      "y": 620,
+      "width": 200,
+      "height": 80,
+      "color": "5"
+    },
+    {
+      "id": "a_branch",
+      "type": "text",
+      "text": "## 관리자 여정 (Admin)\n`/admin/*`",
+      "x": -600,
+      "y": 200,
+      "width": 220,
+      "height": 70,
+      "color": "1"
+    },
+    {
+      "id": "a_dashboard",
+      "type": "text",
+      "text": "**관리자 대시보드**\n`/admin/dashboard`\n전체 매출 / 신규 가입\n활성 가게 / 탄소 절감\n주문 / 가입 현황 테이블",
+      "x": -980,
+      "y": 360,
+      "width": 200,
+      "height": 110,
+      "color": "1"
+    },
+    {
+      "id": "a_users",
+      "type": "text",
+      "text": "**회원 관리**\n`/admin/users`\n소비자 (히어로/포인트)\n사장님 (매출/소진율)",
+      "x": -980,
+      "y": 510,
+      "width": 200,
+      "height": 90,
+      "color": "1"
+    },
+    {
+      "id": "a_stores",
+      "type": "text",
+      "text": "**가게 관리**\n`/admin/stores`\n가게 목록\n지역 / 상품수 / 평점 / 상태",
+      "x": -980,
+      "y": 640,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_finance",
+      "type": "text",
+      "text": "**수익 관리**\n`/admin/finance`\n월별 수익 추이\n수수료 / 영업이익",
+      "x": -980,
+      "y": 760,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_hero",
+      "type": "text",
+      "text": "**히어로 시스템 설정**\n`/admin/hero-system`\n등급 설정 / 혜택 설정\n등급 수동 조정",
+      "x": -740,
+      "y": 640,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_hero_page",
+      "type": "text",
+      "text": "**히어로 현황**\n`/admin/hero`\n전체 히어로 유저 목록\n등급 분포 통계",
+      "x": -500,
+      "y": 640,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_promotions",
+      "type": "text",
+      "text": "**프로모션 관리**\n`/admin/promotions`\n쿠폰 생성 / 발급\n프로모 코드 관리",
+      "x": -500,
+      "y": 760,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_payback",
+      "type": "text",
+      "text": "**페이백 심사**\n`/admin/payback`\n영수증 검토\n승인 / 반려 처리",
+      "x": -740,
+      "y": 760,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_ml",
+      "type": "text",
+      "text": "**ML 모델 관리**\n`/admin/ml`\n예측 정확도 / 학습 데이터\n수동 재학습 트리거",
+      "x": -740,
+      "y": 880,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    },
+    {
+      "id": "a_settings",
+      "type": "text",
+      "text": "**시스템 설정**\n`/admin/settings`\n수수료율 / 정산 주기\n시스템 공지",
+      "x": -980,
+      "y": 880,
+      "width": 200,
+      "height": 80,
+      "color": "1"
+    }
+  ],
+
+  "edges": [
+    { "id": "e_center_consumer", "fromNode": "center", "toNode": "c_branch", "fromSide": "left", "toSide": "right" },
+    { "id": "e_center_seller", "fromNode": "center", "toNode": "s_branch", "fromSide": "right", "toSide": "left" },
+    { "id": "e_center_sa", "fromNode": "center", "toNode": "sa_branch", "fromSide": "right", "toSide": "left" },
+    { "id": "e_center_admin", "fromNode": "center", "toNode": "a_branch", "fromSide": "left", "toSide": "right" },
+
+    { "id": "e_c1", "fromNode": "c_branch", "toNode": "c_onboarding", "fromSide": "left", "toSide": "right", "label": "시작" },
+    { "id": "e_c2", "fromNode": "c_onboarding", "toNode": "c_home", "fromSide": "bottom", "toSide": "top", "label": "소비자 선택" },
+    { "id": "e_c_me", "fromNode": "c_home", "toNode": "c_buyer_me", "fromSide": "left", "toSide": "right", "label": "프로필" },
+    { "id": "e_c3", "fromNode": "c_home", "toNode": "c_store", "fromSide": "bottom", "toSide": "top", "label": "가게 클릭" },
+    { "id": "e_c4", "fromNode": "c_store", "toNode": "c_product", "fromSide": "bottom", "toSide": "top", "label": "상품 클릭" },
+    { "id": "e_c5", "fromNode": "c_product", "toNode": "c_cart", "fromSide": "bottom", "toSide": "top", "label": "장바구니 담기" },
+    { "id": "e_c_res_list", "fromNode": "c_cart", "toNode": "c_reservations_list", "fromSide": "left", "toSide": "right", "label": "예약 목록" },
+    { "id": "e_c6", "fromNode": "c_cart", "toNode": "c_orders", "fromSide": "bottom", "toSide": "top", "label": "예약 완료" },
+    { "id": "e_c7", "fromNode": "c_orders", "toNode": "c_reservation_detail", "fromSide": "left", "toSide": "right", "label": "상세 보기" },
+    { "id": "e_c8", "fromNode": "c_orders", "toNode": "c_review", "fromSide": "bottom", "toSide": "top", "label": "픽업완료 후" },
+    { "id": "e_c_orders_mypage", "fromNode": "c_orders", "toNode": "c_mypage", "fromSide": "right", "toSide": "left", "label": "마이페이지" },
+    { "id": "e_c_review_mypage", "fromNode": "c_review", "toNode": "c_mypage", "fromSide": "right", "toSide": "left", "label": "혜택 확인" },
+    { "id": "e_c_my1", "fromNode": "c_branch", "toNode": "c_mypage", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_c_my_profile", "fromNode": "c_mypage", "toNode": "c_mypage_profile", "fromSide": "right", "toSide": "left" },
+    { "id": "e_c_my2", "fromNode": "c_mypage", "toNode": "c_mypage_coupons", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_c_my3", "fromNode": "c_mypage", "toNode": "c_mypage_points", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_c_my4", "fromNode": "c_mypage", "toNode": "c_mypage_hero", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_c_my5", "fromNode": "c_mypage", "toNode": "c_mypage_receipts", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_c_my_orders", "fromNode": "c_mypage", "toNode": "c_mypage_orders", "fromSide": "right", "toSide": "left" },
+    { "id": "e_c_my_benefits", "fromNode": "c_mypage", "toNode": "c_mypage_benefits", "fromSide": "right", "toSide": "left" },
+
+    { "id": "e_s1", "fromNode": "s_branch", "toNode": "s_onboarding", "fromSide": "right", "toSide": "left", "label": "시작" },
+    { "id": "e_s2", "fromNode": "s_onboarding", "toNode": "s_store_setup", "fromSide": "bottom", "toSide": "top", "label": "사장님 선택" },
+    { "id": "e_s3", "fromNode": "s_store_setup", "toNode": "s_upload", "fromSide": "bottom", "toSide": "top", "label": "가게 등록 완료" },
+    { "id": "e_s4", "fromNode": "s_upload", "toNode": "s_menu", "fromSide": "right", "toSide": "left", "label": "템플릿 관리" },
+    { "id": "e_s5", "fromNode": "s_upload", "toNode": "s_dashboard", "fromSide": "bottom", "toSide": "top", "label": "등록 완료" },
+    { "id": "e_s6", "fromNode": "s_dashboard", "toNode": "s_edit", "fromSide": "right", "toSide": "left", "label": "수정" },
+    { "id": "e_s7", "fromNode": "s_dashboard", "toNode": "s_reservations", "fromSide": "bottom", "toSide": "top", "label": "예약 확인" },
+    { "id": "e_s8", "fromNode": "s_reservations", "toNode": "s_analytics", "fromSide": "right", "toSide": "left" },
+    { "id": "e_s9", "fromNode": "s_dashboard", "toNode": "s_reviews", "fromSide": "bottom", "toSide": "top", "label": "리뷰 확인" },
+    { "id": "e_s10", "fromNode": "s_dashboard", "toNode": "s_settings", "fromSide": "right", "toSide": "left", "label": "설정" },
+
+    { "id": "e_sa1", "fromNode": "sa_branch", "toNode": "sa_dashboard", "fromSide": "right", "toSide": "left", "label": "메인" },
+    { "id": "e_sa2", "fromNode": "sa_dashboard", "toNode": "sa_products", "fromSide": "right", "toSide": "left", "label": "상품 관리" },
+    { "id": "e_sa3", "fromNode": "sa_products", "toNode": "sa_product_new", "fromSide": "right", "toSide": "left", "label": "새 상품" },
+    { "id": "e_sa4", "fromNode": "sa_dashboard", "toNode": "sa_orders", "fromSide": "bottom", "toSide": "top", "label": "주문 관리" },
+    { "id": "e_sa5", "fromNode": "sa_orders", "toNode": "sa_settlement", "fromSide": "right", "toSide": "left", "label": "정산" },
+    { "id": "e_sa6", "fromNode": "sa_dashboard", "toNode": "sa_menu", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_sa7", "fromNode": "sa_dashboard", "toNode": "sa_predict", "fromSide": "right", "toSide": "left" },
+    { "id": "e_sa8", "fromNode": "sa_settlement", "toNode": "sa_promotions", "fromSide": "right", "toSide": "left" },
+    { "id": "e_sa9", "fromNode": "sa_products", "toNode": "sa_promotions", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_sa10", "fromNode": "sa_promotions", "toNode": "sa_profile", "fromSide": "bottom", "toSide": "top" },
+
+    { "id": "e_a1", "fromNode": "a_branch", "toNode": "a_dashboard", "fromSide": "left", "toSide": "right", "label": "메인" },
+    { "id": "e_a2", "fromNode": "a_dashboard", "toNode": "a_users", "fromSide": "bottom", "toSide": "top", "label": "회원 관리" },
+    { "id": "e_a3", "fromNode": "a_dashboard", "toNode": "a_stores", "fromSide": "bottom", "toSide": "top", "label": "가게 관리" },
+    { "id": "e_a4", "fromNode": "a_dashboard", "toNode": "a_finance", "fromSide": "bottom", "toSide": "top", "label": "수익 관리" },
+    { "id": "e_a5", "fromNode": "a_stores", "toNode": "a_hero", "fromSide": "right", "toSide": "left", "label": "히어로 설정" },
+    { "id": "e_a_hero_page", "fromNode": "a_dashboard", "toNode": "a_hero_page", "fromSide": "right", "toSide": "left", "label": "히어로 현황" },
+    { "id": "e_a_hero_detail", "fromNode": "a_hero_page", "toNode": "a_hero", "fromSide": "left", "toSide": "right", "label": "시스템 설정" },
+    { "id": "e_a_promotions", "fromNode": "a_dashboard", "toNode": "a_promotions", "fromSide": "right", "toSide": "left", "label": "프로모션" },
+    { "id": "e_a6", "fromNode": "a_hero", "toNode": "a_payback", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_a7", "fromNode": "a_payback", "toNode": "a_ml", "fromSide": "bottom", "toSide": "top" },
+    { "id": "e_a8", "fromNode": "a_finance", "toNode": "a_settings", "fromSide": "bottom", "toSide": "top", "label": "시스템 설정" }
+  ]
+}
