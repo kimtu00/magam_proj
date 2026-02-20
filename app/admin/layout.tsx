@@ -9,8 +9,10 @@ export default async function AdminLayout({
 }) {
   // 관리자 권한 확인
   const admin = await isAdmin();
-  
+  console.log("🔐 Admin Layout - isAdmin result:", admin);
+
   if (!admin) {
+    console.log("🚫 Admin Layout - 권한 없음, /로 redirect");
     redirect("/");
   }
 

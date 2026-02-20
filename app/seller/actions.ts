@@ -105,7 +105,9 @@ export async function createStore(formData: FormData) {
  * @param formData - 가게 정보를 담은 FormData
  * @returns 수정된 가게 정보 또는 에러
  */
-export async function updateStore(formData: FormData) {
+export async function updateStore(
+  formData: FormData
+): Promise<{ success: true; store: StoreData } | { success: false; error: string }> {
   // 1. 인증 확인
   const { userId } = await auth();
 

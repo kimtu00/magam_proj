@@ -132,6 +132,7 @@ export default clerkMiddleware(async (auth, req) => {
       }
 
       console.log("✅ Admin 접근 허용 - email:", userEmail, "(legacy)");
+      return NextResponse.next(); // 명시적으로 요청 허용
     } catch (error) {
       console.error("❌ Admin middleware error:", error);
       const homeUrl = new URL("/", req.url);
