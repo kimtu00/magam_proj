@@ -59,10 +59,15 @@ function OnboardingContent() {
 
       console.log("✅ 역할 업데이트 성공 -> Clerk 세션 갱신");
 
+      // pendingRole 정리 (성공 시 반드시 삭제하여 재트리거 방지)
+      localStorage.removeItem("pendingRole");
+
       // Clerk 세션 갱신
       if (session) {
         console.log("🔄 Clerk 세션 갱신 중...");
         await session.reload();
+        // Clerk JWT 전파 안정화 대기 (미들웨어가 새 role을 읽을 수 있도록)
+        await new Promise((resolve) => setTimeout(resolve, 500));
         console.log("✅ Clerk 세션 갱신 완료");
       }
 
@@ -126,10 +131,15 @@ function OnboardingContent() {
 
       console.log("✅ 역할 업데이트 성공 -> Clerk 세션 갱신");
 
+      // pendingRole 정리 (성공 시 반드시 삭제하여 재트리거 방지)
+      localStorage.removeItem("pendingRole");
+
       // Clerk 세션 갱신
       if (session) {
         console.log("🔄 Clerk 세션 갱신 중...");
         await session.reload();
+        // Clerk JWT 전파 안정화 대기 (미들웨어가 새 role을 읽을 수 있도록)
+        await new Promise((resolve) => setTimeout(resolve, 500));
         console.log("✅ Clerk 세션 갱신 완료");
       }
 
