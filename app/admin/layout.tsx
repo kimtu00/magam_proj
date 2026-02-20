@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import { isAdmin } from "@/lib/auth/admin";
 import { AdminSidebar } from "@/components/navigation/admin-sidebar";
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminLayout({
   children,
 }: {
