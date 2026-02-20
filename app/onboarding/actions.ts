@@ -65,18 +65,22 @@ export async function updateUserRole(role: "consumer" | "producer" | "BUYER" | "
     
     console.log("정규화된 역할:", normalizedRole);
 
-    // 3. Clerk publicMetadata 업데이트
-    console.log("📝 Clerk publicMetadata 업데이트 시작...");
+    // 3. Clerk publicMetadata 업데이트 + 사용자 정보 조회 (병렬 처리로 속도 개선)
+    console.log("📝 Clerk publicMetadata 업데이트 + 사용자 정보 조회 (병렬)...");
     const client = await clerkClient();
+
+    let clerkUser: Awaited<ReturnType<typeof client.users.getUser>>;
     try {
-      await client.users.updateUserMetadata(userId, {
-        publicMetadata: {
-          role: normalizedRole,
-        },
-      });
-      console.log("✅ Clerk publicMetadata 업데이트 완료 - role:", normalizedRole);
+      const [, fetchedUser] = await Promise.all([
+        client.users.updateUserMetadata(userId, {
+          publicMetadata: { role: normalizedRole },
+        }),
+        client.users.getUser(userId),
+      ]);
+      clerkUser = fetchedUser;
+      console.log("✅ Clerk publicMetadata 업데이트 + 사용자 정보 조회 완료 - role:", normalizedRole);
     } catch (clerkError) {
-      console.error("❌ Clerk metadata update error:", clerkError);
+      console.error("❌ Clerk error:", clerkError);
       console.groupEnd();
       return {
         success: false,
@@ -89,8 +93,6 @@ export async function updateUserRole(role: "consumer" | "producer" | "BUYER" | "
     console.log("📝 Supabase profiles 테이블 업데이트 시작...");
     const supabase = getServiceRoleClient();
 
-    // Clerk에서 사용자 정보 가져오기
-    const clerkUser = await client.users.getUser(userId);
     const nickname =
       clerkUser.fullName ||
       clerkUser.username ||

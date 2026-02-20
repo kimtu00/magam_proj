@@ -6,14 +6,15 @@
 --   1. profiles      - 소비자 2명, 사장님 2명
 --   2. stores        - 가게 2개
 --   3. products      - 가게당 상품 3개 (판매중/마감임박/품절 혼합)
---   4. orders        - 소비자별 주문 내역 (RESERVED/COMPLETED/CANCELED)
---   5. reviews       - 완료 주문에 대한 리뷰 + 답글
---   6. user_hero     - 소비자 히어로 등급
---   7. point_transactions - 포인트 적립/사용 내역
---   8. bank_accounts - 소비자 계좌 정보
---   9. settlements   - 가게별 정산 내역
---  10. prediction_training_data - ML 학습 데이터 30건
---  11. prediction_logs          - 예측 로그 10건
+--   4. orders             - 소비자별 주문 내역 (RESERVED/COMPLETED/CANCELED)
+--   5. saved_food_log     - COMPLETED 주문 탄소절감 기록
+--   6. reviews            - 완료 주문에 대한 리뷰 + 답글
+--   7. user_hero          - 소비자 히어로 등급
+--   8. point_transactions - 포인트 적립/사용 내역
+--   9. bank_accounts      - 소비자 계좌 정보
+--  10. settlements        - 가게별 정산 내역
+--  11. prediction_training_data - ML 학습 데이터 30건
+--  12. prediction_logs          - 예측 로그 10건
 --
 -- 주의: 더미 clerk_id 사용 (실제 Clerk 계정 없음)
 --       중복 실행 방지를 위해 ON CONFLICT DO NOTHING 사용
@@ -59,7 +60,7 @@ ON CONFLICT (id) DO NOTHING;
 -- 3. PRODUCTS
 -- ============================================================
 
-INSERT INTO products (id, store_id, name, original_price, discount_price, quantity, status, pickup_deadline, is_instant, created_at)
+INSERT INTO products (id, store_id, name, original_price, discount_price, quantity, status, pickup_deadline, is_instant, weight_value, weight_unit, created_at)
 VALUES
   -- 오즈분식 상품
   (
@@ -69,6 +70,7 @@ VALUES
     8000, 4000, 5, 'AVAILABLE',
     NOW() + INTERVAL '3 hours',
     true,
+    500, 'g',
     NOW() - INTERVAL '1 hour'
   ),
   (
@@ -78,6 +80,7 @@ VALUES
     9000, 5000, 2, 'AVAILABLE',
     NOW() + INTERVAL '30 minutes',
     false,
+    600, 'g',
     NOW() - INTERVAL '2 hours'
   ),
   (
@@ -87,6 +90,7 @@ VALUES
     4000, 2000, 0, 'SOLD_OUT',
     NOW() - INTERVAL '1 hour',
     true,
+    250, 'g',
     NOW() - INTERVAL '4 hours'
   ),
   -- 마이홈 상품
@@ -97,6 +101,7 @@ VALUES
     10000, 6000, 3, 'AVAILABLE',
     NOW() + INTERVAL '2 hours',
     false,
+    700, 'g',
     NOW() - INTERVAL '30 minutes'
   ),
   (
@@ -106,6 +111,7 @@ VALUES
     8500, 5000, 1, 'AVAILABLE',
     NOW() + INTERVAL '45 minutes',
     true,
+    450, 'g',
     NOW() - INTERVAL '1 hour 30 minutes'
   ),
   (
@@ -115,6 +121,7 @@ VALUES
     7500, 4500, 0, 'SOLD_OUT',
     NOW() - INTERVAL '2 hours',
     false,
+    400, 'g',
     NOW() - INTERVAL '5 hours'
   )
 ON CONFLICT (id) DO NOTHING;
@@ -172,7 +179,37 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
--- 5. REVIEWS + REVIEW_REPLIES
+-- 5. SAVED_FOOD_LOG (COMPLETED 주문에 대한 탄소절감 기록)
+-- ============================================================
+-- 트리거는 orders.status가 COMPLETED로 업데이트될 때 자동 실행되지만,
+-- 시드 데이터는 직접 INSERT하므로 트리거가 동작하지 않음.
+-- 따라서 COMPLETED 주문에 대해 saved_food_log를 직접 삽입합니다.
+-- co2_saved_g = saved_weight_g × 2.5 (IPCC/환경부 기준 참고 근사값)
+
+INSERT INTO saved_food_log (id, user_id, order_id, product_id, saved_weight_g, co2_saved_g, created_at)
+VALUES
+  -- 소비자1: 된장찌개 정식 완료 (700g → CO2 1750g)
+  (
+    '55555555-0000-0000-0000-000000000001',
+    'seed_consumer_001',
+    '33333333-0000-0000-0000-000000000002',
+    '22222222-0000-0000-0000-000000000004',
+    700, 1750,
+    '2026-02-01 12:00:00+09'
+  ),
+  -- 소비자2: 순대국밥 완료 (600g → CO2 1500g)
+  (
+    '55555555-0000-0000-0000-000000000002',
+    'seed_consumer_002',
+    '33333333-0000-0000-0000-000000000005',
+    '22222222-0000-0000-0000-000000000002',
+    600, 1500,
+    '2026-02-05 19:00:00+09'
+  )
+ON CONFLICT (order_id) DO NOTHING;
+
+-- ============================================================
+-- 6. REVIEWS + REVIEW_REPLIES
 -- ============================================================
 
 -- 완료된 주문(COMPLETED)에 대해서만 리뷰 작성
@@ -213,7 +250,7 @@ VALUES
 ON CONFLICT (review_id) DO NOTHING;
 
 -- ============================================================
--- 6. USER_HERO (소비자 히어로 등급)
+-- 7. USER_HERO (소비자 히어로 등급)
 -- ============================================================
 
 INSERT INTO user_hero (user_id, grade_level, total_pickup_count, total_saved_weight_g, upgraded_at, created_at)
@@ -237,7 +274,7 @@ VALUES
 ON CONFLICT (user_id) DO NOTHING;
 
 -- ============================================================
--- 7. POINT_TRANSACTIONS
+-- 8. POINT_TRANSACTIONS
 -- ============================================================
 
 INSERT INTO point_transactions (id, user_id, type, amount, balance_after, description, related_order_id, created_at)
@@ -295,7 +332,7 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 -- ============================================================
--- 8. BANK_ACCOUNTS
+-- 9. BANK_ACCOUNTS
 -- ============================================================
 
 INSERT INTO bank_accounts (id, user_id, bank_name, account_number, account_holder, is_verified, is_primary, created_at)
@@ -313,7 +350,7 @@ VALUES
 ON CONFLICT (user_id) DO NOTHING;
 
 -- ============================================================
--- 9. SETTLEMENTS
+-- 10. SETTLEMENTS
 -- ============================================================
 
 INSERT INTO settlements (id, store_id, period_start, period_end, total_sales, total_orders, commission_rate, commission_amount, settlement_amount, status, settled_at, notes, created_at)
@@ -359,7 +396,7 @@ VALUES
 ON CONFLICT (store_id, period_start, period_end) DO NOTHING;
 
 -- ============================================================
--- 10. PREDICTION_TRAINING_DATA (ML 학습 데이터 30건)
+-- 11. PREDICTION_TRAINING_DATA (ML 학습 데이터 30건)
 -- ============================================================
 
 INSERT INTO prediction_training_data (
@@ -412,7 +449,7 @@ INSERT INTO prediction_training_data (
 ;
 
 -- ============================================================
--- 11. PREDICTION_LOGS (예측 로그 10건)
+-- 12. PREDICTION_LOGS (예측 로그 10건)
 -- 완료된 8건 + 진행중 2건 → 평균 정확도 약 82%
 -- ============================================================
 
