@@ -10,8 +10,8 @@
 !.yarn/releases
 !.yarn/versions
 
-# pnpm
-pnpm-lock.yaml
+# npm (use pnpm instead)
+package-lock.json
 
 # testing
 /coverage
