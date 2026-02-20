@@ -147,10 +147,14 @@ export async function getPaybackHistory(limit: number = 50) {
       userId: receipt.user_id || "",
       userName: userMap.get(receipt.user_id) || "Unknown",
       orderId: receipt.order_id || "",
+      orderNumber: receipt.order_id ? receipt.order_id.slice(0, 8).toUpperCase() : "",
+      imageUrl: receipt.image_url || "",
       status: receipt.status,
+      rejectReason: receipt.reject_reason,
       paybackAmount: receipt.payback_amount,
       reviewedBy: receipt.reviewed_by,
       reviewedAt: receipt.reviewed_at,
+      createdAt: receipt.created_at,
     }));
   } catch (error) {
     console.error("[Admin Payback] Failed to fetch payback history:", error);
