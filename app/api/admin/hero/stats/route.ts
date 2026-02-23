@@ -72,19 +72,9 @@ export async function GET() {
     // kg로 변환
     const totalWeightKg = totalWeightG / 1000;
 
-    // 3. 총 탄소 절감량 조회 (saved_food_log 테이블에서)
-    const { data: co2Data, error: co2Error } = await supabase
-      .from("saved_food_log")
-      .select("co2_reduced_kg");
-
-    if (co2Error) {
-      console.error("Error fetching CO2 data:", co2Error);
-    }
-
-    let totalCo2Kg = 0;
-    (co2Data || []).forEach((log) => {
-      totalCo2Kg += Number(log.co2_reduced_kg) || 0;
-    });
+    // 3. 총 탄소 절감량 계산 (무게 * 2.5 공식, IPCC/환경부 기준)
+    // user_hero.total_saved_weight_g 합산값(totalWeightG)을 재사용
+    const totalCo2Kg = (totalWeightG * 2.5) / 1000;
 
     // 등급 설정 조회 (등급명 매핑용)
     const { data: gradeConfigs } = await supabase

@@ -72,15 +72,16 @@ export async function getAdminDashboardStats(): Promise<AdminDashboardStats | nu
       .select("*", { count: "exact", head: true })
       .gte("created_at", today);
 
-    // 3. 총 탄소 절감 (saved_food_log.co2_saved_g 합산)
+    // 3. 총 탄소 절감 (saved_food_log.saved_weight_g * 2.5, IPCC/환경부 기준)
     const { data: savedFoodsData } = await supabase
       .from("saved_food_log")
-      .select("co2_saved_g");
+      .select("saved_weight_g");
 
-    const carbonReduced = (savedFoodsData || []).reduce(
-      (sum, item: any) => sum + (item.co2_saved_g || 0),
+    const totalSavedWeightG = (savedFoodsData || []).reduce(
+      (sum, item: any) => sum + (item.saved_weight_g || 0),
       0
     );
+    const carbonReduced = totalSavedWeightG * 2.5;
 
     // 4. 활성 가게 (stores 테이블에 status 없으므로 전체 가게 수로 대체)
     const { count: activeStores } = await supabase
